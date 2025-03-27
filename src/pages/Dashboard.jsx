@@ -7,75 +7,89 @@ import FilterBar from "../components/FilterBar"
 import ProductList from "../components/ProductList"
 import RecentTransactions from "../components/RecentTransactions"
 
+const dummyProducts = [
+  {
+    id: 1,
+    name: "Kuota Hemat 4 GB",
+    price: 10000,
+    duration: "30 hari",
+    provider: "by.U",
+  },
+  {
+    id: 2,
+    name: "Kuota Sosmed 5 GB",
+    price: 15000,
+    duration: "30 hari",
+    provider: "Telkomsel",
+  },
+  {
+    id: 3,
+    name: "Paket Streaming 10 GB",
+    price: 25000,
+    duration: "7 hari",
+    provider: "XL",
+  },
+  {
+    id: 4,
+    name: "Internet Malam 15 GB",
+    price: 20000,
+    duration: "10 hari",
+    provider: "Axis",
+  },
+  {
+    id: 5,
+    name: "Combo Internet + Telepon",
+    price: 35000,
+    duration: "30 hari",
+    provider: "Indosat",
+  },
+  {
+    id: 6,
+    name: "Unlimited Chatting",
+    price: 12000,
+    duration: "7 hari",
+    provider: "3 (Tri)",
+  },
+  {
+    id: 7,
+    name: "Kuota Belajar 8 GB",
+    price: 18000,
+    duration: "14 hari",
+    provider: "Smartfren",
+  },
+  {
+    id: 8,
+    name: "Kuota Harian 1 GB/hari",
+    price: 25000,
+    duration: "7 hari",
+    provider: "Telkomsel",
+  },
+  {
+    id: 9,
+    name: "Unlimited App Package",
+    price: 30000,
+    duration: "30 hari",
+    provider: "by.U",
+  },
+  {
+    id: 10,
+    name: "Kuota Jumbo 40 GB",
+    price: 75000,
+    duration: "30 hari",
+    provider: "XL",
+  },
+]
+
 function Dashboard() {
-  const [phoneNumber, setPhoneNumber] = useState("")
-  const [selectedProvider, setSelectedProvider] = useState("")
-  const [selectedType, setSelectedType] = useState("")
-
-  // Sample product data
-  const products = [
-    { id: 1, name: "Kuota Hemat", quota: "4 GB", duration: "30 hari", price: "Rp 10.000", provider: "Telkomsel" },
-    { id: 2, name: "Kuota Bulanan", quota: "8 GB", duration: "30 hari", price: "Rp 25.000", provider: "XL" },
-    {
-      id: 3,
-      name: "Kuota Unlimited",
-      quota: "Unlimited",
-      duration: "30 hari",
-      price: "Rp 100.000",
-      provider: "Indosat",
-    },
-    { id: 4, name: "Kuota Malam", quota: "20 GB", duration: "30 hari", price: "Rp 30.000", provider: "Telkomsel" },
-    { id: 5, name: "Kuota Sosmed", quota: "10 GB", duration: "30 hari", price: "Rp 35.000", provider: "XL" },
-  ]
-
-  // Sample recent transactions
-  const recentTransactions = [
-    {
-      id: 101,
-      name: "Kuota Hemat",
-      quota: "4 GB",
-      duration: "30 hari",
-      price: "Rp 10.000",
-      provider: "Telkomsel",
-      date: "2 hari lalu",
-    },
-    {
-      id: 102,
-      name: "Kuota Bulanan",
-      quota: "8 GB",
-      duration: "30 hari",
-      price: "Rp 25.000",
-      provider: "XL",
-      date: "5 hari lalu",
-    },
-    {
-      id: 103,
-      name: "Kuota Sosmed",
-      quota: "10 GB",
-      duration: "30 hari",
-      price: "Rp 35.000",
-      provider: "Indosat",
-      date: "1 minggu lalu",
-    },
-  ]
-
   return (
     <div className="font-poppins min-h-screen">
       <Navbar />
       <HeroSection />
-      <FilterBar
-        phoneNumber={phoneNumber}
-        setPhoneNumber={setPhoneNumber}
-        selectedProvider={selectedProvider}
-        setSelectedProvider={setSelectedProvider}
-        selectedType={selectedType}
-        setSelectedType={setSelectedType}
-      />
-      <ProductList products={products} />
-      <RecentTransactions transactions={recentTransactions} />
+      <FilterBar />
+      <ProductList products={dummyProducts} />
+     {/* <RecentTransactions /> */}
     </div>
   )
 }
 
 export default Dashboard
-
