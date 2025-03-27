@@ -29,7 +29,7 @@ const Login = () => {
       <div className="bg-[#27548A] w-full md:w-1/2 flex flex-col relative overflow-hidden">
         <div className="relative z-20 px-8 pt-10 flex flex-col items-center text-center mt-10">
             <div className="flex items-center gap-3 justify-center">
-                <h1 className="text-white text-[56px] md:text-[72px] font-extrabold leading-tight">Netpack</h1>
+                <h1 className="text-white text-[56px] md:text-[102px] font-extrabold leading-tight">Netpack</h1>
                 <div className="w-16 h-16">
                     <img
                         src="/src/assets/sparkle.png"
