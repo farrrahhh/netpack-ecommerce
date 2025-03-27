@@ -5,6 +5,7 @@ export const theme = {
   extend: {
     fontFamily: {
       poppins: ["Poppins", "sans-serif"],
+      poorStory: ['"Poor Story"', 'cursive'],
     },
     colors: {
       border: "hsl(var(--border))",
