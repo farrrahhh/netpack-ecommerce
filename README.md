@@ -28,4 +28,20 @@ Designed as part of the **Frontend Developer Selection Task**, this project aims
 ### 1. Clone the Repository
 ```bash
 git clone https://github.com/yourusername/netpack-ui.git
-cd netpack-ui
+```
+```bash
+cd netpack-ecommerce
+```
+### 2. Install Dependencies
+```bash
+npm install
+```
+### 3. Run the Development Server
+```bash
+npm run dev
+```
+### 4. Setup and Run JSON Server (Mock API)
+```bash
+npm install -g json-server
+json-server --watch db.json --port 3001
+```
