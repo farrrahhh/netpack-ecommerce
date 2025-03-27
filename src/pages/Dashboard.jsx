@@ -6,6 +6,7 @@ import HeroSection from "../components/HeroSection"
 import FilterBar from "../components/FilterBar"
 import ProductList from "../components/ProductList"
 import RecentTransactions from "../components/RecentTransactions"
+import Footer from "../components/Footer"
 
 const dummyProducts = [
   {
@@ -87,7 +88,8 @@ function Dashboard() {
       <HeroSection />
       <FilterBar />
       <ProductList products={dummyProducts} />
-     {/* <RecentTransactions /> */}
+      <RecentTransactions />
+    <Footer />
     </div>
   )
 }

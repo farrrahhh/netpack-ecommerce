@@ -1,44 +1,74 @@
-const TransactionCard = ({ transaction }) => {
-    return (
-      <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4 border border-white border-opacity-20">
-        <div className="flex justify-between items-start">
-          <div>
-            <h4 className="text-white font-medium">{transaction.name}</h4>
-            <p className="text-white text-opacity-80 text-sm">{transaction.provider}</p>
+"use client"
+
+import { Card, Button, Typography } from "antd"
+
+const { Title, Paragraph } = Typography
+
+const lastTransactions = [
+  {
+    id: 1,
+    name: "Kuota Hemat",
+    quota: "4 GB",
+    duration: "30 hari",
+  },
+  {
+    id: 2,
+    name: "Kuota Hemat",
+    quota: "4 GB",
+    duration: "30 hari",
+  },
+  {
+    id: 3,
+    name: "Kuota Hemat",
+    quota: "4 GB",
+    duration: "30 hari",
+  },
+]
+
+const RecentTransactions = () => {
+  return (
+    <div className="bg-[#27548A] py-16 px-4 md:px-20 text-white font-poppins">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10">
+        {/* Character */}
+        <div className="w-full md:w-[600px] relative">
+  <img
+    src="src/assets/person3.png"
+    alt="Character"
+    className="hidden md:block absolute top-[-124px] left-0 w-[400px] sm:w-[550px] md:w-[700px] h-auto object-contain"
+  />
+</div>
+
+        {/* Text & Cards */}
+        <div className="w-full md:w-2/3">
+          <Title level={2} style={{ color: "white" }} className="font-poppins mb-2">
+            Transaksi terakhirmu, sat set tanpa ribet!
+          </Title>
+          <Paragraph className="text-white text-opacity-90 font-poppins mb-6">
+            Lihat kembali paket yang baru aja kamu beli...
+          </Paragraph>
+
+          <div className="flex flex-wrap gap-4 justify-start md:justify-between">
+            {lastTransactions.map((item) => (
+              <Card
+                key={item.id}
+                style={{ width: 220, borderRadius: 12, fontFamily: "Poppins" }}
+                bodyStyle={{ padding: "16px" }}
+              >
+                <p className="font-semibold text-gray-800 mb-2">{item.name}</p>
+                <div className="flex items-center justify-start gap-2 text-[#27548A] mb-4">
+                  <p className="text-xl font-bold">{item.quota}</p>
+                  <span className="text-sm text-gray-600">| {item.duration}</span>
+                </div>
+                <Button type="primary" block className="bg-[#27548A] rounded-md font-poppins">
+                  Beli lagi
+                </Button>
+              </Card>
+            ))}
           </div>
-          <span className="text-xs text-white text-opacity-70">{transaction.date}</span>
-        </div>
-  
-        <div className="mt-2 space-y-1">
-          <div className="flex items-center text-sm text-white text-opacity-90">
-            <svg
-              className="w-4 h-4 mr-1 text-white text-opacity-70"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-              />
-            </svg>
-            <span>{transaction.quota}</span>
-          </div>
-        </div>
-  
-        <div className="mt-3 flex justify-between items-center">
-          <span className="text-white font-bold">{transaction.price}</span>
-          <button className="px-3 py-1 bg-white text-[#27548A] rounded-full text-xs font-medium hover:bg-opacity-90 transition duration-300">
-            Beli lagi
-          </button>
         </div>
       </div>
-    )
-  }
-  
-  export default TransactionCard
-  
-  
+    </div>
+  )
+}
+
+export default RecentTransactions
