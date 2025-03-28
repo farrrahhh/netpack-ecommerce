@@ -11,7 +11,11 @@ import Footer from "../components/Footer"
 function Dashboard() {
   const [products, setProducts] = useState([])
   const [transactions, setTransactions] = useState([])
+  const [phoneNumber, setPhoneNumber] = useState("")
+  const [selectedProvider, setSelectedProvider] = useState("Semua Provider")
+  const [selectedType, setSelectedType] = useState("Semua Jenis")
 
+  // Fetch produk
   const fetchProducts = async () => {
     try {
       const res = await fetch("http://localhost:3001/packages")
@@ -22,6 +26,7 @@ function Dashboard() {
     }
   }
 
+  // Fetch transaksi user login
   const fetchTransactions = async () => {
     try {
       const email = localStorage.getItem("userEmail")
@@ -52,7 +57,7 @@ function Dashboard() {
     }
   }
 
-  // Fetch sekali saat load + ulangi setiap 5 detik
+  // Jalankan saat mount + refresh transaksi tiap 5 detik
   useEffect(() => {
     fetchProducts()
     fetchTransactions()
@@ -61,8 +66,26 @@ function Dashboard() {
       fetchTransactions()
     }, 5000)
 
-    return () => clearInterval(interval) // bersihkan interval kalau komponen di-unmount
+    return () => clearInterval(interval)
   }, [])
+
+  // Filter produk
+  const filteredProducts = products.filter((product) => {
+    const matchProvider =
+      selectedProvider === "Semua Provider" || product.provider.toLowerCase().includes(selectedProvider.toLowerCase())
+
+    const matchType =
+      selectedType === "Semua Jenis" || product.name.toLowerCase().includes(selectedType.toLowerCase())
+
+    return matchProvider && matchType
+  })
+
+  // Simpan phone number ke localStorage
+  useEffect(() => {
+    if (phoneNumber) {
+      localStorage.setItem("phoneNumber", phoneNumber)
+    }
+  }, [phoneNumber])
 
   return (
     <div className="font-poppins min-h-screen">
@@ -73,11 +96,24 @@ function Dashboard() {
       </section>
 
       <section id="filter">
-        <FilterBar />
+        <FilterBar
+          phoneNumber={phoneNumber}
+          setPhoneNumber={setPhoneNumber}
+          selectedProvider={selectedProvider}
+          setSelectedProvider={setSelectedProvider}
+          selectedType={selectedType}
+          setSelectedType={setSelectedType}
+        />
       </section>
 
       <section id="paket">
-        <ProductList products={products} onSuccessBuy={fetchTransactions} />
+      <ProductList
+        products={products}
+        onSuccessBuy={fetchTransactions}
+        selectedProvider={selectedProvider}
+        selectedType={selectedType}
+        phoneNumber={phoneNumber}
+      />
       </section>
 
       <section id="transaksi">
