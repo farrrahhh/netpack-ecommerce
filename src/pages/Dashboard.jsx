@@ -69,17 +69,6 @@ function Dashboard() {
     return () => clearInterval(interval)
   }, [])
 
-  // Filter produk
-  const filteredProducts = products.filter((product) => {
-    const matchProvider =
-      selectedProvider === "Semua Provider" || product.provider.toLowerCase().includes(selectedProvider.toLowerCase())
-
-    const matchType =
-      selectedType === "Semua Jenis" || product.name.toLowerCase().includes(selectedType.toLowerCase())
-
-    return matchProvider && matchType
-  })
-
   // Simpan phone number ke localStorage
   useEffect(() => {
     if (phoneNumber) {

@@ -1,6 +1,5 @@
 "use client"
 
-import { useEffect } from "react"
 import { ChevronDown, Search } from "lucide-react"
 
 const FilterBar = ({
@@ -13,30 +12,6 @@ const FilterBar = ({
 }) => {
   const providers = ["Semua Provider", "Telkomsel", "XL", "Indosat", "Tri", "Smartfren"]
   const quotaTypes = ["Semua Jenis", "Internet", "Telepon", "SMS", "Combo", "Entertainment"]
-
-  const prefixMap = {
-    Telkomsel: ['0811', '0812', '0813', '0821', '0822', '0823', '0851', '0852', '0853'],
-    Indosat: ['0814', '0815', '0816', '0855', '0856', '0857', '0858'],
-    XL: ['0817', '0818', '0819', '0859', '0877', '0878'],
-    Tri: ['0895', '0896', '0897', '0898', '0899'],
-    AXIS: ['0831', '0832', '0833', '0838'],
-    Smartfren: ['0881', '0882', '0883', '0884', '0885', '0886', '0887', '0888', '0889']
-  }
-
-  const getOperatorFromPrefix = (number) => {
-    const prefix = number.substring(0, 4)
-    for (const [provider, prefixes] of Object.entries(prefixMap)) {
-      if (prefixes.includes(prefix)) return provider
-    }
-    return "Semua Provider"
-  }
-
-  useEffect(() => {
-    if (phoneNumber.length >= 4) {
-      const detected = getOperatorFromPrefix(phoneNumber)
-      setSelectedProvider(detected)
-    }
-  }, [phoneNumber])
 
   return (
     <div className="bg-gray-50 py-6">
@@ -64,7 +39,7 @@ const FilterBar = ({
               </div>
             </div>
 
-            {/* Quota Type Filter */}
+            {/* Kuota Type Filter */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Jenis Kuota</label>
               <div className="relative">
