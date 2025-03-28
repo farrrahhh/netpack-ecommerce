@@ -1,6 +1,7 @@
 "use client"
 import UserProfile from "../components/UserProfile" // Corrected the import path
 import Navbar from "../components/Navbar"
+import Footer from "../components/Footer"
 
 function Akun() {
   const userData = {
@@ -13,12 +14,15 @@ function Akun() {
     city: "Kota Bandung",
   }
 
-  return (
-    <div className="font-poppins">
-      <Navbar />
-      <UserProfile userData={userData} />
+return (
+    <div className="min-h-screen font-poppins bg-gray-100">
+        <Navbar />
+        <div className="container mx-auto py-8">
+            <UserProfile userData={userData} />
+        </div>
+        <Footer />
     </div>
-  )
+)
 }
 
 export default Akun

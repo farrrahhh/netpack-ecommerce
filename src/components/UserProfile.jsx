@@ -20,7 +20,7 @@ const UserProfile = ({ userData }) => {
   ]
 
   return (
-    <div className="min-h-screen bg-[#f3f6f8] font-poppins px-4 py-10 md:py-14">
+    <div className="bg-[#f3f6f8] font-poppins px-4 py-10 md:py-14">
       <div className="max-w-5xl mx-auto flex flex-col items-center">
         <h1 className="text-4xl font-bold text-[#333] mb-10">Akun</h1>
 
@@ -39,8 +39,8 @@ const UserProfile = ({ userData }) => {
           </div>
 
           {/* Right - Card */}
-          <div className="w-full md:w-[70%]">
-            <div className="bg-[#27548A] text-white rounded-xl shadow p-6 relative">
+          <div className="w-full md:w-[100%]">
+            <div className="bg-[#27548A] text-white rounded-xl shadow p-6 relative min-h-[450px]">
               <button
                 onClick={() => setIsEditing(!isEditing)}
                 className="absolute top-4 right-4 bg-white text-[#27548A] px-4 py-2 rounded font-medium hover:bg-gray-100"
@@ -48,7 +48,7 @@ const UserProfile = ({ userData }) => {
                 {isEditing ? "Save" : "Edit"}
               </button>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 mt-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 mt-6">
                 {[leftColumnData, rightColumnData].map((column, colIdx) => (
                   <div key={colIdx} className="space-y-4">
                     {column.map((item, i) => (

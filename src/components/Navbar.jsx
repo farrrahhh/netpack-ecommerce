@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { Menu, X, ChevronDown } from "lucide-react"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 
