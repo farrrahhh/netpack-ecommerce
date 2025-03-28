@@ -1,70 +1,70 @@
-import person2 from '@assets/person2.png'
-import clock from '@assets/clock.png'
-import workingBag from '@assets/working-bag.png'
-import pot from '@assets/pot.png'
-import pattern1 from '@assets/pattern-1.png'
-import pattern2 from '@assets/pattern-2.png'
-
+import person2 from "@assets/person2.png"
+import clock from "@assets/clock.png"
+import workingBag from "@assets/working-bag.png"
+import pot from "@assets/pot.png"
+import pattern1 from "@assets/pattern-1.png"
+import pattern2 from "@assets/pattern-2.png"
+import star from "@assets/star.png"
 
 const HeroSection = () => {
-    return (
-      <div className="bg-[#27548A] relative overflow-hidden py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            {/* Text Side */}
-            <div className="relative z-10">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight">
-                Koneksi cepat, Hidup makin sat set...
-              </h1>
-              <p className="mt-4 text-white text-opacity-90 text-base max-w-md">
-                Kami hadir untuk memastikan kamu selalu terkoneksi dengan cepat, tanpa ribet.
-                Karena hidup <strong>butuh sat set</strong>, bukan <strong>sinyal lemot...</strong>
-              </p>
-              <button className="mt-8 px-6 py-3 bg-white text-[#27548A] font-semibold rounded-full shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
-                Beli sekarang!
-              </button>
-            </div>
-  
-            {/* Illustration Side */}
-            <div className="relative flex justify-center md:justify-end h-full">
-            <div className="relative w-[340px] h-[340px] sm:w-[400px] sm:h-[400px]">
-                {/* Character image moved to bottom */}
-                <img
-                src={person2}
-                alt="3D Character"
-                className="absolute top-20 right-0 w-full h-full object-contain z-10 scale-110"
-                />
+  return (
+    <section className="relative bg-[#27548A] overflow-hidden py-24 sm:py-28">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-12 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        {/* Left Side: Text */}
+        <div className="text-white z-10 relative">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight animate-fade-in">
+            Koneksi cepat, <br className="hidden md:block" />
+            Hidup makin <span className="text-white/90">sat set...</span>
+          </h1>
+          <p className="mt-5 text-white text-opacity-90 text-lg max-w-md leading-relaxed">
+            Kami hadir untuk memastikan kamu selalu terkoneksi dengan cepat, tanpa ribet. Karena hidup <strong>butuh sat set</strong>, bukan <strong>sinyal lemot...</strong>
+          </p>
+          <button className="mt-8 inline-block px-6 py-3 rounded-full bg-white text-[#27548A] font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            Beli sekarang!
+          </button>
+          <img
+              src={star}
+              alt="Star"
+              className="absolute top-[-40px] left-[-160px] w-28 sm:w-36 md:w-40 z-0 animate-bounce-slow"
+            />
+        </div>
 
-               {/* Floating Elements (dibesarkan & ditata ulang) */}
-                <img
-                 src={clock}
-                alt="Clock"
-                className="absolute top-[-40px] right-[-60px] w-30 sm:w-42 z-0"
-                />
-                <img
-                src={workingBag}
-                alt="Bag"
-                className="absolute top-[5%] left-[-50px] w-30 sm:w-36 z-0"
-                />
-                <img
-                 src={pot}
-                alt="Pot"
-                className="absolute bottom-[-30px] left-[-80px] w-36 sm:w-44 z-0"
-                />
-            </div>
-            </div>
+        {/* Right Side: Illustration */}
+        <div className="relative w-full flex justify-center md:justify-end">
+          <div className="relative w-[340px] sm:w-[420px] md:w-[460px] h-[340px] sm:h-[420px] md:h-[460px]">
+            {/* Person */}
+            <img
+            src={person2}
+            alt="3D Character"
+            className="absolute top-10 right-[-40px] w-[400px] md:w-[400px] lg:w-[400px] h-auto object-contain z-10 scale-110 animate-fade-in"
+            />
+
+            {/* Floating Objects */}
+            <img
+              src={clock}
+              alt="Clock"
+              className="absolute top-[-40px] right-[-60px] w-24 sm:w-28 md:w-32 z-0 animate-float"
+            />
+            <img
+              src={workingBag}
+              alt="Bag"
+              className="absolute top-[5%] left-[-40px] w-24 sm:w-28 md:w-32 z-0 animate-float-delay"
+            />
+            <img
+              src={pot}
+              alt="Pot"
+              className="absolute bottom-[-30px] left-[-70px] w-28 sm:w-36 md:w-40 z-0 animate-bounce-slow"
+            />
+            
           </div>
         </div>
-  
-        {/* Background Patterns */}
-        <div className="absolute top-10 right-10 opacity-10">
-            <img src={pattern1} alt="Pattern 1" />
-        </div>
-        <div className="absolute bottom-10 left-10 opacity-10">
-            <img src={pattern2} alt="Pattern 2" />
-        </div>
       </div>
-    )
-  }
-  
-  export default HeroSection
+
+      {/* Background Patterns */}
+      <img src={pattern1} alt="Pattern 1" className="absolute top-10 right-10 w-28 opacity-10" />
+      <img src={pattern2} alt="Pattern 2" className="absolute bottom-10 left-10 w-32 opacity-10" />
+    </section>
+  )
+}
+
+export default HeroSection
