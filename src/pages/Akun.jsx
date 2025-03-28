@@ -14,7 +14,7 @@ function Akun() {
   }
 
   return (
-    <div className="font-poppins min-h-screen">
+    <div className="font-poppins">
       <Navbar />
       <UserProfile userData={userData} />
     </div>

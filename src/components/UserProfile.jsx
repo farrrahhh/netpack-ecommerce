@@ -20,11 +20,11 @@ const UserProfile = ({ userData }) => {
   ]
 
   return (
-    <div className="min-h-screen bg-[#f3f6f8] font-poppins">
-      <div className="max-w-6xl mx-auto px-4 py-10 md:py-14">
-      <h1 className="text-4xl font-bold text-[#333] mb-10">Akun</h1>
+    <div className="min-h-screen bg-[#f3f6f8] font-poppins px-4 py-10 md:py-14">
+      <div className="max-w-5xl mx-auto flex flex-col items-center">
+        <h1 className="text-4xl font-bold text-[#333] mb-10">Akun</h1>
 
-        <div className="flex flex-col md:flex-row gap-10 items-start">
+        <div className="flex flex-col md:flex-row md:items-start gap-10 w-full">
           {/* Left - Avatar and Change Password */}
           <div className="flex flex-col items-center">
             <div className="relative w-44 h-44 bg-[#27548A] rounded-full flex items-center justify-center">
@@ -39,7 +39,7 @@ const UserProfile = ({ userData }) => {
           </div>
 
           {/* Right - Card */}
-          <div className="flex-1">
+          <div className="w-full md:w-[70%]">
             <div className="bg-[#27548A] text-white rounded-xl shadow p-6 relative">
               <button
                 onClick={() => setIsEditing(!isEditing)}
@@ -61,7 +61,7 @@ const UserProfile = ({ userData }) => {
                             className="w-full bg-[#3A6AA3] border border-[#5A8AC3] rounded-md p-3 mt-1 text-white text-base"
                           />
                         ) : (
-                          <p className="text-base text-gray-250">{item.value}</p>
+                          <p className="text-base text-white">{item.value}</p>
                         )}
                       </div>
                     ))}

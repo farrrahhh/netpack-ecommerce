@@ -1,15 +1,37 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Menu, X, ChevronDown } from "lucide-react"
-import { Link, useLocation } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [showDropdown, setShowDropdown] = useState(false)
+  const [activeSection, setActiveSection] = useState("")
   const location = useLocation()
+  const navigate = useNavigate()
 
-  const isActive = (path) => location.pathname === path
+  const scrollToSection = (id) => {
+    const el = document.getElementById(id)
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
+  const handleNavigateAndScroll = (sectionId) => {
+    setActiveSection(sectionId) // 👈 set active section
+
+    if (location.pathname !== "/dashboard") {
+      navigate("/dashboard")
+      setTimeout(() => scrollToSection(sectionId), 100)
+    } else {
+      scrollToSection(sectionId)
+    }
+
+    setIsMenuOpen(false)
+  }
+
+  const isPage = (path) => location.pathname === path
 
   return (
     <nav className="bg-white shadow-sm sticky top-0 z-50 font-poppins">
@@ -21,33 +43,34 @@ const Navbar = () => {
 
           {/* Desktop menu */}
           <div className="hidden sm:flex sm:items-center sm:space-x-8 relative">
-            <Link
-              to="/"
+            <button
+              onClick={() => handleNavigateAndScroll("filter")}
               className={`text-[20px] font-medium inline-flex items-center px-1 pt-1 border-b-2 ${
-                isActive("/")
+                isPage("/dashboard") && activeSection === "filter"
                   ? "text-[#27548A] border-[#27548A] font-semibold"
                   : "text-gray-500 border-transparent hover:text-[#27548A] hover:border-[#27548A]"
               }`}
             >
               Beli Paket
-            </Link>
-            <Link
-              to="/transaksi"
+            </button>
+
+            <button
+              onClick={() => handleNavigateAndScroll("transaksi")}
               className={`text-[20px] font-medium inline-flex items-center px-1 pt-1 border-b-2 ${
-                isActive("/transaksi")
+                isPage("/dashboard") && activeSection === "transaksi"
                   ? "text-[#27548A] border-[#27548A] font-semibold"
                   : "text-gray-500 border-transparent hover:text-[#27548A] hover:border-[#27548A]"
               }`}
             >
               Transaksi
-            </Link>
+            </button>
 
-            {/* Akun with Dropdown */}
+            {/* Akun Dropdown */}
             <div className="relative">
               <button
                 onClick={() => setShowDropdown(!showDropdown)}
                 className={`text-[20px] font-medium inline-flex items-center px-1 pt-1 border-b-2 ${
-                  isActive("/akun")
+                  isPage("/akun")
                     ? "text-[#27548A] border-[#27548A] font-semibold"
                     : "text-gray-500 border-transparent hover:text-[#27548A] hover:border-[#27548A]"
                 }`}
@@ -73,7 +96,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Mobile Toggle */}
+          {/* Mobile toggle */}
           <div className="-mr-2 flex sm:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -89,31 +112,31 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="sm:hidden font-poppins">
           <div className="pt-2 pb-3 space-y-1">
-            <Link
-              to="/"
-              className={`block pl-3 pr-4 py-2 border-l-4 text-[20px] font-medium ${
-                isActive("/")
+            <button
+              onClick={() => handleNavigateAndScroll("filter")}
+              className={`block w-full text-left pl-3 pr-4 py-2 border-l-4 text-[20px] font-medium ${
+                activeSection === "filter"
                   ? "text-[#27548A] bg-[#27548A]/10 border-[#27548A]"
                   : "text-gray-500 border-transparent hover:text-[#27548A]"
               }`}
             >
               Beli Paket
-            </Link>
-            <Link
-              to="/transaksi"
-              className={`block pl-3 pr-4 py-2 border-l-4 text-[20px] font-medium ${
-                isActive("/transaksi")
+            </button>
+            <button
+              onClick={() => handleNavigateAndScroll("transaksi")}
+              className={`block w-full text-left pl-3 pr-4 py-2 border-l-4 text-[20px] font-medium ${
+                activeSection === "transaksi"
                   ? "text-[#27548A] bg-[#27548A]/10 border-[#27548A]"
                   : "text-gray-500 border-transparent hover:text-[#27548A]"
               }`}
             >
               Transaksi
-            </Link>
+            </button>
             <div className="pl-3 pr-4">
               <Link
                 to="/akun"
                 className={`block py-2 text-[20px] font-medium ${
-                  isActive("/akun")
+                  isPage("/akun")
                     ? "text-[#27548A] font-semibold underline"
                     : "text-gray-500 hover:text-[#27548A]"
                 }`}

@@ -81,16 +81,30 @@ const dummyProducts = [
 ]
 
 function Dashboard() {
-  return (
-    <div className="font-poppins min-h-screen">
-      <Navbar />
-      <HeroSection />
-      <FilterBar />
-      <ProductList products={dummyProducts} />
-      <RecentTransactions />
-    <Footer />
-    </div>
-  )
-}
-
-export default Dashboard
+    return (
+      <div className="font-poppins min-h-screen">
+        <Navbar />
+  
+        <section id="hero">
+          <HeroSection />
+        </section>
+  
+        <section id="filter">
+          <FilterBar />
+        </section>
+  
+        <section id="paket">
+          <ProductList products={dummyProducts} />
+        </section>
+  
+        <section id="transaksi">
+          <RecentTransactions />
+        </section>
+  
+        <section id="footer">
+          <Footer />
+        </section>
+      </div>
+    )
+  }
+  export default Dashboard
