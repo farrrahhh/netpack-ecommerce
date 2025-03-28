@@ -1,32 +1,142 @@
 {
-    "users": [
-      {
-        "id": 1,
-        "name": "Farah Aulia",
-        "email": "farahaulll268@gmail.com",
-        "phone": "+6282245822451",
-        "gender": "Perempuan",
-        "birthDate": "2004-03-30",
-        "province": "Jawa Barat",
-        "city": "Kota Bandung",
-        "password": "123456"
-      }
-    ],
-    "packages": [
-      {
-        "id": 1,
-        "name": "Kuota Hemat 4 GB",
-        "price": 10000,
-        "duration": "30 hari",
-        "provider": "by.U"
-      }
-    ],
-    "transactions": [
-      {
-        "id": 1,
-        "userId": 1,
-        "packageId": 1,
-        "date": "2025-03-28"
-      }
-    ]
-  }
+  "users": [
+    {
+      "id": "1",
+      "name": "Farah Aulia",
+      "email": "farahaulll268@gmail.com",
+      "phone": "+6282245822451",
+      "gender": "Perempuan",
+      "birthDate": "2004-03-30",
+      "province": "Jawa Barat",
+      "city": "Kota Bandung",
+      "password": "123456"
+    },
+    {
+      "id": "7fd1",
+      "name": "Nawasaki",
+      "email": "nawasaki123@gmail.com",
+      "phone": "082245822450",
+      "gender": "Laki-laki",
+      "birthDate": "2025-03-07",
+      "province": "Jawa Barat",
+      "city": "Gresek",
+      "password": "123456"
+    }
+  ],
+  "packages": [
+    {
+      "id": "1",
+      "name": "Kuota Hemat 4 GB",
+      "price": 10000,
+      "duration": "30 hari",
+      "provider": "by.U",
+      "quota": "4 GB"
+    },
+    {
+      "id": "2",
+      "name": "Kuota Sosmed 5 GB",
+      "price": 15000,
+      "duration": "30 hari",
+      "provider": "Telkomsel",
+      "quota": "5 GB"
+    },
+    {
+      "id": "3",
+      "name": "Paket Streaming 10 GB",
+      "price": 25000,
+      "duration": "7 hari",
+      "provider": "XL",
+      "quota": "10 GB"
+    },
+    {
+      "id": "4",
+      "name": "Internet Malam 15 GB",
+      "price": 20000,
+      "duration": "10 hari",
+      "provider": "Axis",
+      "quota": "15 GB"
+    },
+    {
+      "id": "7",
+      "name": "Kuota Belajar 8 GB",
+      "price": 18000,
+      "duration": "14 hari",
+      "provider": "Smartfren",
+      "quota": "8 GB"
+    },
+    {
+      "id": "10",
+      "name": "Kuota Jumbo 40 GB",
+      "price": 75000,
+      "duration": "30 hari",
+      "provider": "XL",
+      "quota": "40 GB"
+    },
+    {
+      "id": "11",
+      "name": "Paket Murah Meriah 2 GB",
+      "price": 8000,
+      "duration": "5 hari",
+      "provider": "Axis",
+      "quota": "2 GB"
+    },
+    {
+      "id": "12",
+      "name": "Streaming Premium 25 GB",
+      "price": 40000,
+      "duration": "14 hari",
+      "provider": "Indosat",
+      "quota": "25 GB"
+    },
+    {
+      "id": "15",
+      "name": "Internet Super Cepat 50 GB",
+      "price": 95000,
+      "duration": "30 hari",
+      "provider": "Telkomsel",
+      "quota": "50 GB"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "1",
+      "userId": 1,
+      "email": "farahaulll268@gmail.com",
+      "packageId": 1,
+      "price": 10000,
+      "date": "2025-03-28"
+    },
+    {
+      "id": "f872",
+      "userId": "7fd1",
+      "packageId": "11",
+      "email": "nawasaki123@gmail.com",
+      "price": 8000,
+      "date": "2025-03-28"
+    },
+    {
+      "id": "ab33",
+      "userId": "1",
+      "packageId": "10",
+      "email": "farahaulll268@gmail.com",
+      "price": 75000,
+      "date": "2025-03-28"
+    },
+    {
+      "id": "a469",
+      "userId": "1",
+      "packageId": "10",
+      "email": "farahaulll268@gmail.com",
+      "price": 75000,
+      "date": "2025-03-28"
+    },
+    {
+      "id": "4dba",
+      "userId": "1",
+      "packageId": "7",
+      "email": "farahaulll268@gmail.com",
+      "price": 18000,
+      "date": "2025-03-28"
+    }
+  ]
+}
