@@ -4,6 +4,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import sparkle from "@assets/sparkle.png" 
 import person1 from "@assets/person1.png" 
+import person4 from "@assets/person4.png" 
 
 const Login = () => {
   
@@ -31,7 +32,7 @@ const Login = () => {
     <div className="min-h-screen flex flex-col md:flex-row font-poppins">
       {/* Left Column - Blue Background with Logo and Illustration */}
       <div className="bg-[#27548A] w-full md:w-1/2 flex flex-col relative overflow-hidden">
-        <div className="relative z-20 px-8 pt-10 flex flex-col items-center text-center mt-10">
+        <div className="relative z-10 px-8 pt-10 flex flex-col items-center text-center mt-10">
             <div className="flex items-center gap-3 justify-center">
                 <h1 className="text-white text-[56px] md:text-[102px] font-extrabold leading-tight">Netpack</h1>
                 <div className="w-16 h-16">
@@ -44,13 +45,16 @@ const Login = () => {
             </div>
             <p className="text-white mt-2 text-base md:text-2xl font-poorStory">Kuotamu, gaya kamu!</p>
         </div>
-        <div className="relative flex-grow flex items-center justify-start overflow-hidden">
+        <div className="relative flex-grow flex items-center justify-start overflow-hidden z-100">
             <div className="relative max-w-full h-auto max-h-96 -left-16 -top-14">
+            <picture>
+                <source media="(max-width: 640px)" srcSet={person4} />
                 <img
-                 src={person1}
-                alt="PersonWithPhone"
-                className="w-full h-full object-contain"
+                    src={person1}
+                    alt="PersonWithPhone"
+                    className="w-full h-auto object-contain"
                 />
+            </picture>
             </div>
         </div>
       </div>
