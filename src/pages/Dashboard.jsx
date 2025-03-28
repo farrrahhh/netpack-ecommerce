@@ -12,7 +12,6 @@ function Dashboard() {
   const [products, setProducts] = useState([])
   const [transactions, setTransactions] = useState([])
 
-  // Fetch data produk dari API
   const fetchProducts = async () => {
     try {
       const res = await fetch("http://localhost:3001/packages")
@@ -23,10 +22,9 @@ function Dashboard() {
     }
   }
 
-  // Fetch data transaksi user yang sedang login
   const fetchTransactions = async () => {
     try {
-      const email = localStorage.getItem("userEmail")?.replace(/"/g, "")
+      const email = localStorage.getItem("userEmail")
       if (!email) return
 
       const res = await fetch("http://localhost:3001/transactions")
@@ -37,7 +35,7 @@ function Dashboard() {
       const packages = await pkgRes.json()
 
       const enriched = userTransactions
-        .slice(-3) // Ambil 3 transaksi terakhir
+        .slice(-3)
         .map((tx) => {
           const pkg = packages.find((p) => p.id == tx.packageId)
           return {
@@ -54,10 +52,16 @@ function Dashboard() {
     }
   }
 
-  // Jalankan saat pertama kali halaman dibuka
+  // Fetch sekali saat load + ulangi setiap 5 detik
   useEffect(() => {
     fetchProducts()
     fetchTransactions()
+
+    const interval = setInterval(() => {
+      fetchTransactions()
+    }, 5000)
+
+    return () => clearInterval(interval) // bersihkan interval kalau komponen di-unmount
   }, [])
 
   return (

@@ -1,28 +1,48 @@
 "use client"
-import UserProfile from "../components/UserProfile" // Corrected the import path
+import { useEffect, useState } from "react"
+import UserProfile from "../components/UserProfile"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 
 function Akun() {
-  const userData = {
-    name: "Farah Aulia",
-    email: "farahaulll268@gmail.com",
-    phone: "+6282245822451",
-    gender: "Perempuan",
-    birthDate: "30/03/2004",
-    province: "Jawa Barat",
-    city: "Kota Bandung",
-  }
+  const [userData, setUserData] = useState(null)
 
-return (
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const email = localStorage.getItem("userEmail")
+      if (!email) return
+
+      try {
+        const res = await fetch("http://localhost:3001/users")
+        const users = await res.json()
+        const matchedUser = users.find((user) => user.email === email)
+
+        if (matchedUser) {
+          setUserData(matchedUser)
+        } else {
+          console.warn("User tidak ditemukan")
+        }
+      } catch (error) {
+        console.error("Gagal mengambil data user:", error)
+      }
+    }
+
+    fetchUserData()
+  }, [])
+
+  return (
     <div className="min-h-screen font-poppins bg-gray-100">
-        <Navbar />
-        <div className="container mx-auto py-8">
-            <UserProfile userData={userData} />
-        </div>
-        <Footer />
+      <Navbar />
+      <div className="container mx-auto py-8">
+        {userData ? (
+          <UserProfile userData={userData} />
+        ) : (
+          <p className="text-center text-gray-600">Memuat data akun...</p>
+        )}
+      </div>
+      <Footer />
     </div>
-)
+  )
 }
 
 export default Akun
