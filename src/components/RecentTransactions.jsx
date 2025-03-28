@@ -31,12 +31,12 @@ const RecentTransactions = () => {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10">
         {/* Character */}
         <div className="w-full md:w-[600px] relative">
-  <img
-    src="src/assets/person3.png"
-    alt="Character"
-    className="hidden md:block absolute top-[-124px] left-0 w-[400px] sm:w-[550px] md:w-[700px] h-auto object-contain"
-  />
-</div>
+          <img
+            src="src/assets/person3.png"
+            alt="Character"
+            className="hidden md:block absolute top-[-180px] left-0 w-[400px] sm:w-[550px] md:w-[700px] h-auto object-contain"
+          />
+        </div>
 
         {/* Text & Cards */}
         <div className="w-full md:w-2/3">
