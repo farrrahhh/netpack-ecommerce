@@ -10,7 +10,7 @@ const FilterBar = ({
   selectedType,
   setSelectedType,
 }) => {
-  const providers = ["Semua Provider", "Telkomsel", "XL", "Indosat", "Tri", "Smartfren"]
+  const providers = ["Semua Provider", "Telkomsel", "XL", "Indosat", "Tri", "Smartfren", "Axis", "by.U" ]
   const quotaTypes = ["Semua Jenis", "Internet", "Telepon", "SMS", "Combo", "Entertainment"]
 
   return (
