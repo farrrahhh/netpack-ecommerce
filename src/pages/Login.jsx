@@ -1,14 +1,21 @@
 "use client"
 
 import { useState } from "react"
-
+import { useNavigate } from "react-router-dom"
 
 const Login = () => {
+  
   const [credentials, setCredentials] = useState({
     emailOrPhone: "",
     password: "",
   })
 
+  const navigate = useNavigate()
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log("Login attempt with:", credentials)
+    navigate("/dashboard") // Arahkan ke dashboard
+    }
   const handleChange = (e) => {
     const { id, value } = e.target
     setCredentials((prev) => ({
@@ -17,11 +24,6 @@ const Login = () => {
     }))
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log("Login attempt with:", credentials)
-    // Add your authentication logic here
-  }
 
   return (
     <div className="min-h-screen flex flex-col md:flex-row font-poppins">
