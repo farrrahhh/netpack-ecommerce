@@ -5,6 +5,10 @@ import { Menu, X, ChevronDown } from "lucide-react"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 
 const Navbar = () => {
+  const handleLogOut = () => {
+    // Clear any authentication tokens or user data here
+    navigate("/") // Redirect to the login page
+  }
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [showDropdown, setShowDropdown] = useState(false)
   const [activeSection, setActiveSection] = useState("")
@@ -86,7 +90,7 @@ const Navbar = () => {
                     Akun
                   </Link>
                   <button
-                    onClick={() => alert("Logged out!")}
+                    onClick={() => handleLogOut()}
                     className="w-full text-left px-4 py-2 text-sm text-red-500 hover:bg-gray-100"
                   >
                     Keluar

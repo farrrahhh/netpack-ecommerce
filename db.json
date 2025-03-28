@@ -1,0 +1,32 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "name": "Farah Aulia",
+        "email": "farahaulll268@gmail.com",
+        "phone": "+6282245822451",
+        "gender": "Perempuan",
+        "birthDate": "2004-03-30",
+        "province": "Jawa Barat",
+        "city": "Kota Bandung",
+        "password": "123456"
+      }
+    ],
+    "packages": [
+      {
+        "id": 1,
+        "name": "Kuota Hemat 4 GB",
+        "price": 10000,
+        "duration": "30 hari",
+        "provider": "by.U"
+      }
+    ],
+    "transactions": [
+      {
+        "id": 1,
+        "userId": 1,
+        "packageId": 1,
+        "date": "2025-03-28"
+      }
+    ]
+  }
