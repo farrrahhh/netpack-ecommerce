@@ -1,3 +1,11 @@
+import person2 from '@assets/person2.png'
+import clock from '@assets/clock.png'
+import workingBag from '@assets/working-bag.png'
+import pot from '@assets/pot.png'
+import pattern1 from '@assets/pattern-1.png'
+import pattern2 from '@assets/pattern-2.png'
+
+
 const HeroSection = () => {
     return (
       <div className="bg-[#27548A] relative overflow-hidden py-20">
@@ -22,24 +30,24 @@ const HeroSection = () => {
             <div className="relative w-[340px] h-[340px] sm:w-[400px] sm:h-[400px]">
                 {/* Character image moved to bottom */}
                 <img
-                src="src/assets/person2.png"
+                src={person2}
                 alt="3D Character"
                 className="absolute top-20 right-0 w-full h-full object-contain z-10 scale-110"
                 />
 
                {/* Floating Elements (dibesarkan & ditata ulang) */}
                 <img
-                src="src/assets/clock.png"
+                 src={clock}
                 alt="Clock"
                 className="absolute top-[-40px] right-[-60px] w-30 sm:w-42 z-0"
                 />
                 <img
-                src="src/assets/working-bag.png"
+                src={workingBag}
                 alt="Bag"
                 className="absolute top-[5%] left-[-50px] w-30 sm:w-36 z-0"
                 />
                 <img
-                src="src/assets/pot.png"
+                 src={pot}
                 alt="Pot"
                 className="absolute bottom-[-30px] left-[-80px] w-36 sm:w-44 z-0"
                 />
@@ -50,10 +58,10 @@ const HeroSection = () => {
   
         {/* Background Patterns */}
         <div className="absolute top-10 right-10 opacity-10">
-          <img src="src/assets/pattern-1.png" alt="Pattern 1" />
+            <img src={pattern1} alt="Pattern 1" />
         </div>
         <div className="absolute bottom-10 left-10 opacity-10">
-          <img src="src/assets/pattern-2.png" alt="Pattern 2" />
+            <img src={pattern2} alt="Pattern 2" />
         </div>
       </div>
     )

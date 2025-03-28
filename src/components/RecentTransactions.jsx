@@ -1,6 +1,7 @@
 "use client"
 
 import { Card, Button, Typography } from "antd"
+import person3 from "@assets/person3.png" // Import the image using the alias
 
 const { Title, Paragraph } = Typography
 
@@ -32,7 +33,7 @@ const RecentTransactions = () => {
         {/* Character */}
         <div className="w-full md:w-[600px] relative">
           <img
-            src="src/assets/person3.png"
+            src={person3} // Use the imported image here
             alt="Character"
             className="hidden md:block absolute top-[-180px] left-0 w-[400px] sm:w-[550px] md:w-[700px] h-auto object-contain"
           />
