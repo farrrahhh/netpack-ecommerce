@@ -40,33 +40,38 @@ const RecentTransactions = () => {
         </div>
 
         {/* Text & Cards */}
-        <div className="w-full md:w-2/3">
-          <Title level={2} style={{ color: "white" }} className="font-poppins mb-2">
-            Transaksi terakhirmu, sat set tanpa ribet!
-          </Title>
-          <Paragraph className="text-white text-opacity-90 font-poppins mb-6">
-            Lihat kembali paket yang baru aja kamu beli...
-          </Paragraph>
+        {/* Text & Cards */}
+<div className="w-full md:w-2/3 text-center md:text-left">
+  <Title level={2} style={{ color: "white" }} className="font-poppins mb-2">
+    Transaksi terakhirmu, sat set tanpa ribet!
+  </Title>
+  <Paragraph className="text-white text-opacity-90 font-poppins mb-6">
+    Lihat kembali paket yang baru aja kamu beli...
+  </Paragraph>
 
-          <div className="flex flex-wrap gap-4 justify-start md:justify-between">
-            {lastTransactions.map((item) => (
-              <Card
-                key={item.id}
-                style={{ width: 220, borderRadius: 12, fontFamily: "Poppins" }}
-                bodyStyle={{ padding: "16px" }}
-              >
-                <p className="font-semibold text-gray-800 mb-2">{item.name}</p>
-                <div className="flex items-center justify-start gap-2 text-[#27548A] mb-4">
-                  <p className="text-xl font-bold">{item.quota}</p>
-                  <span className="text-sm text-gray-600">| {item.duration}</span>
-                </div>
-                <Button type="primary" block className="bg-[#27548A] rounded-md font-poppins">
-                  Beli lagi
-                </Button>
-              </Card>
-            ))}
-          </div>
+  <div className="flex flex-wrap gap-4 justify-center md:justify-between">
+    {lastTransactions.map((item) => (
+      <Card
+        key={item.id}
+        style={{ width: 220, borderRadius: 12, fontFamily: "Poppins" }}
+        bodyStyle={{ padding: "16px" }}
+      >
+        <p className="font-semibold text-gray-800 mb-2">{item.name}</p>
+        <div className="flex items-center justify-start gap-2 text-[#27548A] mb-4">
+          <p className="text-xl font-bold">{item.quota}</p>
+          <span className="text-sm text-gray-600">| {item.duration}</span>
         </div>
+        <Button
+          type="primary"
+          block
+          className="bg-[#27548A] rounded-md font-poppins"
+        >
+          Beli lagi
+        </Button>
+      </Card>
+    ))}
+  </div>
+</div>
       </div>
     </div>
   )
