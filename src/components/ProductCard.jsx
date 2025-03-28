@@ -9,7 +9,7 @@ const ProductCard = ({ product }) => {
   const handleBuy = async () => {
     try {
         const userId = localStorage.getItem("user")
-        const res = await fetch("http://localhost:3001/transactions", {
+        const res = await fetch("https://whispering-pollen-wolf.glitch.me/transactions", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({

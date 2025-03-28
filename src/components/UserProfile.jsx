@@ -14,7 +14,7 @@ const UserProfile = ({ userData }) => {
 
   const handleSave = async () => {
     try {
-      const res = await fetch(`http://localhost:3001/users/${userData.id}`, {
+      const res = await fetch(`https://whispering-pollen-wolf.glitch.me/users/${userData.id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

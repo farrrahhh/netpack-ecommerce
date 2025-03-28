@@ -18,7 +18,7 @@ function Dashboard() {
   // Fetch produk
   const fetchProducts = async () => {
     try {
-      const res = await fetch("http://localhost:3001/packages")
+      const res = await fetch("https://whispering-pollen-wolf.glitch.me/packages")
       const data = await res.json()
       setProducts(data)
     } catch (error) {
@@ -32,11 +32,11 @@ function Dashboard() {
       const email = localStorage.getItem("userEmail")
       if (!email) return
 
-      const res = await fetch("http://localhost:3001/transactions")
+      const res = await fetch("https://whispering-pollen-wolf.glitch.me/transactions")
       const allTransactions = await res.json()
       const userTransactions = allTransactions.filter((tx) => tx.email === email)
 
-      const pkgRes = await fetch("http://localhost:3001/packages")
+      const pkgRes = await fetch("https://whispering-pollen-wolf.glitch.me/packages")
       const packages = await pkgRes.json()
 
       const enriched = userTransactions
