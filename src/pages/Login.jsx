@@ -2,6 +2,8 @@
 
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import sparkle from "@assets/sparkle.png" 
+import person1 from "@assets/person1.png" 
 
 const Login = () => {
   
@@ -34,7 +36,7 @@ const Login = () => {
                 <h1 className="text-white text-[56px] md:text-[102px] font-extrabold leading-tight">Netpack</h1>
                 <div className="w-16 h-16">
                     <img
-                        src="/src/assets/sparkle.png"
+                        src={sparkle}
                         alt="Sparkle"
                         className="w-full h-full object-contain"
                     />
@@ -45,7 +47,7 @@ const Login = () => {
         <div className="relative flex-grow flex items-center justify-start overflow-hidden">
             <div className="relative max-w-full h-auto max-h-96 -left-16 -top-14">
                 <img
-                src="/src/assets/person1.png"
+                 src={person1}
                 alt="PersonWithPhone"
                 className="w-full h-full object-contain"
                 />
