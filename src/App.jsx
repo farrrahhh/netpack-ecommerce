@@ -3,7 +3,7 @@ import Login from "./pages/Login"
 import Dashboard from "./pages/Dashboard"
 import Akun from "./pages/Akun"
 import SignUp from "./pages/SignUp"
-
+import "antd/dist/reset.css";
 function App() {
   return (
     <BrowserRouter>

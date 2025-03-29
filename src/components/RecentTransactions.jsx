@@ -1,11 +1,59 @@
 "use client"
 
-import { Card, Button, Typography } from "antd"
+import { useState } from "react"
+import { Card, Button, Typography, Modal } from "antd"
 import person3 from "@assets/person3.png"
 
 const { Title, Paragraph } = Typography
 
-const RecentTransactions = ({ transactions }) => {
+const RecentTransactions = ({ transactions, onSuccessBuy }) => {
+  const [selectedTransaction, setSelectedTransaction] = useState(null)
+  const [isModalVisible, setIsModalVisible] = useState(false)
+
+  const showConfirmModal = (transaction) => {
+    setSelectedTransaction(transaction)
+    setIsModalVisible(true)
+  }
+
+  const handleBuyAgain = async () => {
+    if (!selectedTransaction) return
+
+    try {
+      const userId = localStorage.getItem("user")
+      const email = localStorage.getItem("userEmail")
+
+      const response = await fetch("https://whispering-pollen-wolf.glitch.me/transactions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          userId,
+          email,
+          packageId: selectedTransaction.packageId,
+          price: selectedTransaction.price,
+          date: new Date().toISOString().split("T")[0],
+        }),
+      })
+
+      if (response.ok) {
+        Modal.success({
+          title: "Berhasil!",
+          content: "Transaksi berhasil diulang.",
+        })
+        onSuccessBuy && onSuccessBuy()
+      } else {
+        throw new Error()
+      }
+    // eslint-disable-next-line no-unused-vars
+    } catch (err) {
+      Modal.error({
+        title: "Gagal",
+        content: "Terjadi kesalahan saat memproses transaksi.",
+      })
+    } finally {
+      setIsModalVisible(false)
+    }
+  }
+
   return (
     <div className="bg-[#27548A] py-16 px-4 md:px-20 text-white font-poppins relative min-h-[420px]">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10">
@@ -14,7 +62,7 @@ const RecentTransactions = ({ transactions }) => {
           <img
             src={person3}
             alt="Character"
-            className="hidden md:block absolute top-[-120px] left-0 w-[400px] sm:w-[550px] md:w-[700px] h-auto object-contain"
+            className="hidden md:block absolute top-[-190px] left-0 w-[400px] sm:w-[550px] md:w-[700px] h-auto object-contain"
           />
         </div>
 
@@ -46,6 +94,7 @@ const RecentTransactions = ({ transactions }) => {
                     type="primary"
                     block
                     className="bg-[#27548A] rounded-md font-poppins"
+                    onClick={() => showConfirmModal(item)}
                   >
                     Beli lagi
                   </Button>
@@ -55,6 +104,22 @@ const RecentTransactions = ({ transactions }) => {
           </div>
         </div>
       </div>
+
+      {/* Modal Konfirmasi */}
+      <Modal
+        open={isModalVisible}
+        title="Konfirmasi Pembelian Ulang"
+        onOk={handleBuyAgain}
+        onCancel={() => setIsModalVisible(false)}
+        okText="Ya, Beli"
+        cancelText="Batal"
+      >
+        {selectedTransaction && (
+          <p>
+            Apakah kamu yakin ingin membeli ulang paket <strong>{selectedTransaction.name}</strong>?
+          </p>
+        )}
+      </Modal>
     </div>
   )
 }
