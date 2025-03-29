@@ -21,14 +21,14 @@ const RecentTransactions = ({ transactions, onSuccessBuy }) => {
     try {
       const userId = localStorage.getItem("user")
       const email = localStorage.getItem("userEmail")
-
-      const response = await fetch("https://whispering-pollen-wolf.glitch.me/transactions", {
+      console.log(selectedTransaction)
+      const response = await fetch("http://localhost:3001/transactions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           userId,
-          email,
           packageId: selectedTransaction.packageId,
+          email,
           price: selectedTransaction.price,
           date: new Date().toISOString().split("T")[0],
         }),

@@ -31,7 +31,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await fetch("https://whispering-pollen-wolf.glitch.me/users", {
+      const response = await fetch("http://localhost:3001/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

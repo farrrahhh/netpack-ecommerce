@@ -13,7 +13,7 @@ function Akun() {
       if (!email) return
 
       try {
-        const res = await fetch("https://whispering-pollen-wolf.glitch.me/users")
+        const res = await fetch("http://localhost:3001/users")
         const users = await res.json()
         const matchedUser = users.find((user) => user.email === email)
 
