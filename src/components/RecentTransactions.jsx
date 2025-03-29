@@ -22,7 +22,7 @@ const RecentTransactions = ({ transactions, onSuccessBuy }) => {
       const userId = localStorage.getItem("user")
       const email = localStorage.getItem("userEmail")
 
-      const response = await fetch("http://localhost:3001/transactions", {
+      const response = await fetch("https://whispering-pollen-wolf.glitch.me/transactions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
