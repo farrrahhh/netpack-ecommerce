@@ -120,29 +120,6 @@
     }
   ],
   "transactions": [
-    {
-      "id": "c798",
-      "userId": "7fd1",
-      "packageId": "10",
-      "email": "nawasaki123@gmail.com",
-      "price": 75000,
-      "date": "2025-03-29"
-    },
-    {
-      "id": "9be0",
-      "userId": "7fd1",
-      "packageId": "11",
-      "email": "nawasaki123@gmail.com",
-      "price": 8000,
-      "date": "2025-03-29"
-    },
-    {
-      "id": "85f1",
-      "userId": "7fd1",
-      "packageId": "12",
-      "email": "nawasaki123@gmail.com",
-      "price": 40000,
-      "date": "2025-03-29"
-    }
+    
   ]
 }

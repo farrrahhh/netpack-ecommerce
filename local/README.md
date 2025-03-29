@@ -3,39 +3,34 @@
 This is a frontend prototype built with **React**, **Vite**, and **Tailwind CSS** for a data package e-commerce website.  
 Designed as part of the **Frontend Developer Selection Task**, this project aims to improve UI/UX and simulate the purchase flow of internet data packages.
 
-🌐 Live Website
+## 🚀 Tech Stack
 
-🔗 https://netpack-farahs-projects-d8079cf5.vercel.app/
-
-## Tech Stack
-
-- React + Vite
-- Tailwind CSS
-- JSON Server (for mock API)
-- Ant Design (for UI components)
+- ⚛️ React + Vite
+- 💨 Tailwind CSS
+- 📦 JSON Server (for mock API)
+- 🧱 Optional: MUI or Ant Design (for UI components)
 
 ---
 
-## Features
+## 📂 Features
 
 - [x] Login Page (simulated login)
-- [x] Signup Page (user registration)
 - [x] Dashboard Page (customer view)
 - [x] Transaction Page (list & purchase data packages)
 - [x] JSON Server for dummy backend API
-- [x] Profile Page (view and edit user profile)
-
+- [x] Responsive design with Tailwind
+- [x] Clean folder structure & component-based architecture
 
 ---
 
-## Installation & Setup for Local 
+## 🛠️ Installation & Setup
 
 ### 1. Clone the Repository
 ```bash
 git clone https://github.com/yourusername/netpack-ui.git
 ```
 ```bash
-cd local
+cd netpack-ecommerce
 ```
 ### 2. Install Dependencies
 ```bash
@@ -45,12 +40,7 @@ npm install
 ```bash
 npm run dev
 ```
-### 4. Open another terminal
-### 5. Change directory into my-json-server
-```bash
-cd my-json-server
-```
-### 6. Setup and Run JSON Server (Mock API)
+### 4. Setup and Run JSON Server (Mock API)
 ```bash
 npm install -g json-server
 json-server --watch db.json --port 3001
