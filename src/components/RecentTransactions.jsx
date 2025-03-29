@@ -21,7 +21,7 @@ const RecentTransactions = ({ transactions, onSuccessBuy }) => {
     try {
       const userId = localStorage.getItem("user")
       const email = localStorage.getItem("userEmail")
-      console.log(selectedTransaction)
+
       const response = await fetch("http://localhost:3001/transactions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -43,7 +43,6 @@ const RecentTransactions = ({ transactions, onSuccessBuy }) => {
       } else {
         throw new Error()
       }
-    // eslint-disable-next-line no-unused-vars
     } catch (err) {
       Modal.error({
         title: "Gagal",
@@ -55,19 +54,19 @@ const RecentTransactions = ({ transactions, onSuccessBuy }) => {
   }
 
   return (
-    <div className="bg-[#27548A] py-16 px-4 md:px-20 text-white font-poppins relative min-h-[420px]">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10">
-        {/* Character */}
-        <div className="w-full md:w-[600px] relative">
+    <div className="bg-[#27548A] py-16 px-4 md:px-20 text-white font-poppins relative min-h-[400px]">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-10">
+        {/* Gambar kiri */}
+        <div className="w-full md:w-2/5 relative hidden md:flex justify-center items-center">
           <img
             src={person3}
             alt="Character"
-            className="hidden md:block absolute top-[-190px] left-0 w-[400px] sm:w-[550px] md:w-[700px] h-auto object-contain"
+            className="w-[600px] h-auto object-contain"
           />
         </div>
 
-        {/* Text & Cards */}
-        <div className="w-full md:w-2/3 text-center md:text-left">
+        {/* Konten kanan */}
+        <div className="w-full md:w-4/6 flex flex-col items-center md:items-start text-center md:text-left">
           <Title level={2} style={{ color: "white" }} className="font-poppins mb-2">
             Transaksi terakhirmu, sat set tanpa ribet!
           </Title>
@@ -75,7 +74,7 @@ const RecentTransactions = ({ transactions, onSuccessBuy }) => {
             Lihat kembali paket yang baru aja kamu beli...
           </Paragraph>
 
-          <div className="flex flex-wrap gap-4 justify-center md:justify-between">
+          <div className="flex flex-wrap gap-4 justify-center md:justify-start">
             {transactions.length === 0 ? (
               <p className="text-white/80">Belum ada transaksi.</p>
             ) : (
@@ -116,7 +115,9 @@ const RecentTransactions = ({ transactions, onSuccessBuy }) => {
       >
         {selectedTransaction && (
           <p>
-            Apakah kamu yakin ingin membeli ulang paket <strong>{selectedTransaction.name}</strong>?
+            Apakah kamu yakin ingin membeli ulang paket{" "}
+            <strong>{selectedTransaction.name}</strong> seharga{" "}
+            <strong>Rp {selectedTransaction.price?.toLocaleString()}</strong>?
           </p>
         )}
       </Modal>
