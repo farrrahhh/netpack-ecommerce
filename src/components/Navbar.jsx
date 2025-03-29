@@ -7,6 +7,9 @@ import { Link, useLocation, useNavigate } from "react-router-dom"
 const Navbar = () => {
   const handleLogOut = () => {
     // Clear any authentication tokens or user data here
+    localStorage.removeItem("userEmail") // Remove user email from local storage
+    localStorage.removeItem("userId") // Remove user ID from local storage
+    localStorage.removeItem("userName") // Remove user name from local storage
     navigate("/") // Redirect to the login page
   }
   const [isMenuOpen, setIsMenuOpen] = useState(false)
