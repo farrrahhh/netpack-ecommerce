@@ -1,0 +1,90 @@
+# Query: http://localhost:3001
+# ContextLines: 1
+
+18 results - 14 files
+
+local/src/components/ProductCard.jsx:
+  11          const userId = localStorage.getItem("user")
+  12:         const res = await fetch("http://localhost:3001/transactions", {
+  13            method: "POST",
+
+local/src/components/RecentTransactions.jsx:
+  24  
+  25:       const response = await fetch("http://localhost:3001/transactions", {
+  26          method: "POST",
+
+local/src/components/UserProfile.jsx:
+  16      try {
+  17:       const res = await fetch(`http://localhost:3001users/${userData.id}`, {
+  18          method: "PUT",
+
+local/src/pages/Akun.jsx:
+  15        try {
+  16:         const res = await fetch("http://localhost:3001/users")
+  17          const users = await res.json()
+
+local/src/pages/Dashboard.jsx:
+  20      try {
+  21:       const res = await fetch("http://localhost:3001/packages")
+  22        const data = await res.json()
+
+  34  
+  35:       const res = await fetch("http://localhost:3001/transactions")
+  36        const allTransactions = await res.json()
+
+  38  
+  39:       const pkgRes = await fetch("http://localhost:3001/packages")
+  40        const packages = await pkgRes.json()
+
+local/src/pages/Login.jsx:
+  20      try {
+  21:       const response = await fetch(`http://localhost:3001/users`)
+  22        const users = await response.json()
+
+local/src/pages/SignUp.jsx:
+  33      try {
+  34:       const response = await fetch("http://localhost:3001/users", {
+  35          method: "POST",
+
+src/components/ProductCard.jsx:
+  11          const userId = localStorage.getItem("user")
+  12:         const res = await fetch("https://whispering-pollen-wolf.glitch.me/transactions", {
+  13            method: "POST",
+
+src/components/RecentTransactions.jsx:
+  24  
+  25:       const response = await fetch("https://whispering-pollen-wolf.glitch.me/transactions", {
+  26          method: "POST",
+
+src/components/UserProfile.jsx:
+  16      try {
+  17:       const res = await fetch(`https://whispering-pollen-wolf.glitch.meusers/${userData.id}`, {
+  18          method: "PUT",
+
+src/pages/Akun.jsx:
+  15        try {
+  16:         const res = await fetch("https://whispering-pollen-wolf.glitch.me/users")
+  17          const users = await res.json()
+
+src/pages/Dashboard.jsx:
+  20      try {
+  21:       const res = await fetch("https://whispering-pollen-wolf.glitch.me/packages")
+  22        const data = await res.json()
+
+  34  
+  35:       const res = await fetch("https://whispering-pollen-wolf.glitch.me/transactions")
+  36        const allTransactions = await res.json()
+
+  38  
+  39:       const pkgRes = await fetch("https://whispering-pollen-wolf.glitch.me/packages")
+  40        const packages = await pkgRes.json()
+
+src/pages/Login.jsx:
+  20      try {
+  21:       const response = await fetch(`https://whispering-pollen-wolf.glitch.me/users`)
+  22        const users = await response.json()
+
+src/pages/SignUp.jsx:
+  33      try {
+  34:       const response = await fetch("https://whispering-pollen-wolf.glitch.me/users", {
+  35          method: "POST",
